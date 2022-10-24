@@ -8,7 +8,7 @@ import { FaUserAlt } from "react-icons/fa";
 
 
 const Header = () => {
-    const { user, providerLogin } = useContext(AuthContext);
+    const { user, providerLogin, logOut } = useContext(AuthContext);
 
     const googleProvider = new GoogleAuthProvider();
     const handleGoogleLogin = () => {
@@ -21,6 +21,17 @@ const Header = () => {
                 console.error('Error::', error);
             })
     }
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => {
+                console.error('Error::', error);
+            })
+    }
+
+
+
     return (
         <div className="navbar bg-base-100 bg-neutral mx-auto">
             <div className="flex-1 mx-5">
@@ -45,38 +56,44 @@ const Header = () => {
 
                 </div>
 
-                <div className="dropdown dropdown-end mx-5">
-                    <label tabIndex={0} className="btn btn-ghost">
-                        <div className="">
-                            <h3>Login</h3>
-                        </div>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><Link to='/login' className='text-white p-5'>Login with Email and Password</Link></li>
-                        <li><button onClick={handleGoogleLogin}>Login in with Google</button></li>
-                        <li><a>Logout</a></li>
-                    </ul>
-                </div>
+                {
+                    user?.uid ?
 
-                <div className="dropdown dropdown-end" title='${user?.displayName}'>
-                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                        <div className="w-10 rounded-full">
-                            {
-                                user?.photoURL ? <img src={user?.photoURL} /> : <FaUserAlt className='w-10 mt-3'></FaUserAlt>
-                            }
+                        <div className="dropdown dropdown-end" title='${user?.displayName}'>
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    {
+                                        user?.photoURL ? <img src={user?.photoURL} /> : <FaUserAlt className='w-10 mt-3'></FaUserAlt>
+                                    }
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                    <a className="justify-between">
+                                        {user?.displayName}
+                                        <span className="badge">User</span>
+                                    </a>
+                                </li>
+                                <li><Link to='/login'>Login</Link></li>
+                                <li ><a onClick={handleLogOut}><p className='text-red-500 font-bold'>Log out</p></a></li>
+                            </ul>
                         </div>
-                    </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li>
-                            <a className="justify-between">
-                                {user?.displayName}
-                                <span className="badge">User</span>
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li>
-                        <li><a>Logout</a></li>
-                    </ul>
-                </div>
+                        :
+                        <div className="dropdown dropdown-end mx-5">
+                            <label tabIndex={0} className="btn btn-ghost">
+                                <div className="">
+                                    <h3>Login</h3>
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                <li><Link to='/login' className='text-white p-5'>Login with Email and Password</Link></li>
+                                <li><button onClick={handleGoogleLogin}>Login in with Google</button></li>
+                                <li><a>Logout</a></li>
+                            </ul>
+                        </div>
+                }
+
+
             </div>
         </div>
     );
