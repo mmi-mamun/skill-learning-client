@@ -1,41 +1,76 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import logo from '../../images/logo.png'
+import { FaUserAlt } from "react-icons/fa";
+
 
 const Header = () => {
+    const { user, providerLogin } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider();
+    const handleGoogleLogin = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => {
+                console.error('Error::', error);
+            })
+    }
     return (
         <div className="navbar bg-base-100 bg-neutral mx-auto">
-            <div className="flex-1">
-                <a className="mr-5 btn btn-ghost normal-case text-xl text-white">daisyUI</a>
+            <div className="flex-1 mx-5">
+                <img src={logo} style={{ height: '40px', width: '40px', borderRadius: '50%' }} alt="" />
+                <a className="mr-5 btn btn-ghost normal-case text-xl text-white">Skill Learning</a>
                 <div className='w-50 mx-auto flex flex-row gap-5 text-white'>
                     <Link to='/courses'>Courses</Link>
                     <Link to='/faq'>FAQ</Link>
                     <Link to='/blog'>BLOG</Link>
-                    <Link to='/toggle'>toggle bg</Link>
-                    <Link to='/login'>Login</Link>
                     <Link to='/register'>Register</Link>
+
                 </div>
             </div>
 
-            <div className="flex-none">
+            <div className="flex-none content-center items-center">
                 <div className="dropdown dropdown-end">
-                    <label tabIndex={0} className="btn btn-ghost btn-circle">
+                    <label tabIndex={0} className="btn btn-ghost btn-circle px-10 mr-12">
+                        <Link to='/toggle' className='p-15'>toggle</Link>
                     </label>
 
 
 
                 </div>
 
-                <div className="dropdown dropdown-end">
+                <div className="dropdown dropdown-end mx-5">
+                    <label tabIndex={0} className="btn btn-ghost">
+                        <div className="">
+                            <h3>Login</h3>
+                        </div>
+                    </label>
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                        <li><Link to='/login' className='text-white p-5'>Login with Email and Password</Link></li>
+                        <li><button onClick={handleGoogleLogin}>Login in with Google</button></li>
+                        <li><a>Logout</a></li>
+                    </ul>
+                </div>
+
+                <div className="dropdown dropdown-end" title='${user?.displayName}'>
                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
-                            <img src="https://placeimg.com/80/80/people" />
+                            {
+                                user?.photoURL ? <img src={user?.photoURL} /> : <FaUserAlt className='w-10 mt-3'></FaUserAlt>
+                            }
                         </div>
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li>
                             <a className="justify-between">
-                                Profile
-                                <span className="badge">New</span>
+                                {user?.displayName}
+                                <span className="badge">User</span>
                             </a>
                         </li>
                         <li><a>Settings</a></li>
