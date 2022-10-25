@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUserProfile } = useContext(AuthContext);
     const [passwordError, setPasswordError] = useState('');
     const [success, setSuccess] = useState(false);
 
@@ -43,11 +43,22 @@ const Register = () => {
                 console.log(user);
                 setSuccess(true);
                 form.reset();
+                handleUpdateUserProfile(name, photoURL)
             })
             .catch(error => {
                 console.error('Error::', error);
                 setPasswordError(error.message)
             })
+    }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error))
     }
     return (
         <div className="hero w-50 min-h-screen bg-base-200">

@@ -13,10 +13,11 @@ const Courses = () => {
             .then(res => res.json())
             .then(data => setCourses(data))
     }, [])
+
     return (
         <div className='mx-5'>
             <h2 className="card-title">Total courses :: {courses.length}</h2>
-            <div className="grid-course border">
+            <div className="grid-course">
                 <div className="">
                     {
                         courses.map(course => <CourseList key={course.id} course={course}>
@@ -25,7 +26,7 @@ const Courses = () => {
                     }
 
                 </div>
-                <div className="grid-css border">
+                <div className="grid-css">
                     {
                         courses.map(course => <CourseDetails key={course.id} course={course}>
 
