@@ -54,10 +54,9 @@ const Header = () => {
                 <div className='mx-3'><img src={logo} style={{ height: '40px', width: '40px', borderRadius: '50%' }} alt="" /></div>
                 <Link to={'/'} className=" btn btn-ghost normal-case text-xl text-white">Skill Learning</Link>
                 <div className='w-50 mx-auto flex flex-row gap-5 text-white'>
-                    <Link to='/courses'>Courses</Link>
+                    <Link to='/courses'>COURSES</Link>
                     <Link to='/faq'>FAQ</Link>
                     <Link to='/blog'>BLOG</Link>
-                    <Link to='/register'>Register</Link>
 
                 </div>
             </div>

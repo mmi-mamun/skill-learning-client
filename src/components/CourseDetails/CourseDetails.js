@@ -1,16 +1,15 @@
 import React from 'react';
 
-const CourseDetails = () => {
+const CourseDetails = ({ course }) => {
+    const { title, img, description } = course;
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10">
-                <img src="https://placeimg.com/400/225/arch" alt="Shoes" className="rounded-xl" />
-            </figure>
-            <div className="card-body items-center text-center">
-                <h2 className="card-title">Details course</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
-                <div className="card-actions">
-                    <button className="btn btn-primary">Buy Now</button>
+        <div className="card w-96 glass">
+            <figure><img src={img} alt="car!" /></figure>
+            <div className="card-body">
+                <h2 className="card-title justify-center text-secondary">{title}</h2>
+                <p className="justify-center  text-justify ">{description}</p>
+                <div className="card-actions justify-center">
+                    <button className="btn btn-primary">Learn now!</button>
                 </div>
             </div>
         </div>
