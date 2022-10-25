@@ -12,7 +12,6 @@ const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
-    const [error, setError] = useState(null);
 
     const providerLogin = (provider) => {
         return signInWithPopup(auth, provider);
@@ -42,7 +41,7 @@ const AuthProvider = ({ children }) => {
     }, [])
 
 
-    const authInfo = { user, error, providerLogin, githubLogin, logOut, createUser, logInManually };
+    const authInfo = { user, providerLogin, githubLogin, logOut, createUser, logInManually };
     return (
         <AuthContext.Provider value={authInfo}>
             {children}

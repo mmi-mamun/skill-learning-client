@@ -26,7 +26,7 @@ const Login = () => {
     }
     return (
         <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content flex-col lg:flex-row-reverse">
+            <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                     <p className="py-6">Please login for your identity.</p>
@@ -47,8 +47,9 @@ const Login = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input name='password' type="text" placeholder="password" className="input input-bordered" />
+                            <br />
                             <label className="label">
-                                <Link to="/register" className="label-text-alt link link-hover">Register first?</Link>
+                                <Link to="/register" className="label-text-alt link link-hover">New user?  Please register first..</Link>
                             </label>
                         </div>
                         <div className="form-control mt-6">

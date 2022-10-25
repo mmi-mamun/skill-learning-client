@@ -50,9 +50,9 @@ const Header = () => {
 
     return (
         <div className="navbar bg-base-100 bg-neutral mx-auto">
-            <div className="flex-1 mx-5">
-                <img src={logo} style={{ height: '40px', width: '40px', borderRadius: '50%' }} alt="" />
-                <a className="mr-5 btn btn-ghost normal-case text-xl text-white">Skill Learning</a>
+            <div className="flex-1 mx-2">
+                <div className='mx-3'><img src={logo} style={{ height: '40px', width: '40px', borderRadius: '50%' }} alt="" /></div>
+                <Link to={'/'} className=" btn btn-ghost normal-case text-xl text-white">Skill Learning</Link>
                 <div className='w-50 mx-auto flex flex-row gap-5 text-white'>
                     <Link to='/courses'>Courses</Link>
                     <Link to='/faq'>FAQ</Link>
