@@ -1,10 +1,14 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     const navigate = useNavigate();
+    const [error, setError] = useState('');
+    const [success, setSuccess] = useState(false);
+
     const { logInManually } = useContext(AuthContext);
     const handleSubmit = event => {
         event.preventDefault();
@@ -18,10 +22,12 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                setSuccess(true);
                 navigate('/');
             })
             .catch(error => {
                 console.error('Error::', error);
+                setError(error.message);
             })
     }
     return (
@@ -40,13 +46,17 @@ const Login = () => {
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input name='email' type="text" placeholder="email" className="input input-bordered" />
+                            <input name='email' type="text" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
                             </label>
-                            <input name='password' type="text" placeholder="password" className="input input-bordered" />
+                            <input name='password' type="password" placeholder="password" className="input input-bordered" required />
+                            <p className='text-red-500'>{error}</p>
+                            {
+                                success && <p className='text-success'>User successfully added</p>
+                            }
                             <br />
                             <label className="label">
                                 <Link to="/register" className="label-text-alt link link-hover">New user?  Please register first..</Link>

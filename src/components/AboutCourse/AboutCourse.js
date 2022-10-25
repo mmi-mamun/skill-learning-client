@@ -9,6 +9,7 @@ const AboutCourse = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <img src={course.img} className="max-w-sm rounded-lg shadow-2xl" />
                 <div>
+                    <button className="btn glass">Save as pdf</button>
                     <h1 className="text-5xl font-bold">{course.title}</h1>
                     <p className="py-6">{course.description}</p>
                     <button className="btn btn-primary">Get Premium Access</button>

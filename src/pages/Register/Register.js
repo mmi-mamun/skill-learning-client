@@ -1,11 +1,14 @@
 import { Result } from 'postcss';
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
     const { createUser } = useContext(AuthContext);
+    const [passwordError, setPasswordError] = useState('');
+    const [success, setSuccess] = useState(false);
+
     const handleRegister = event => {
         event.preventDefault();
         const form = event.target;
@@ -13,15 +16,37 @@ const Register = () => {
         const photoURL = form.photoURL.value;
         const email = form.email.value;
         const password = form.password.value;
+        /********************** Password validation start *************************/
+
+        if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+            setPasswordError('Please provide at least two uppercase letter');
+            return;
+        }
+        if (!/(?=.*[0-9].*[0-9])/.test(password)) {
+            setPasswordError('Please provide at least two digit');
+            return;
+        }
+        if (!/(?=.*[!@#$&*])/.test(password)) {
+            setPasswordError('Please add at least one special character');
+            return;
+        }
+        if (password.length < 8) {
+            setPasswordError('Password should be at least 8 characters');
+            return;
+        }
+        setPasswordError('Good Job');
+        /********************** Password validation end *************************/
 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                setSuccess(true);
                 form.reset();
             })
             .catch(error => {
                 console.error('Error::', error);
+                setPasswordError(error.message)
             })
     }
     return (
@@ -62,10 +87,17 @@ const Register = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input name='password' type="password" placeholder="Enter given password" className="input input-bordered font-bold italic" required />
+
+                            <p className='text-red-500'>{passwordError}</p>
+                            {
+                                success && <p className='text-success'>User successfully added</p>
+                            }
+                            <br />
                             <label className="label">
-                                <Link to="/login" className="label-text-alt link link-hover">Already registered? Click to Login..</Link>
+                                <Link to="/login" className="label-text-alt link link-hover text-secondary">Already registered? Click to Login..</Link>
                             </label>
                         </div>
+
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Register</button>
                         </div>
