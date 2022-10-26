@@ -1,40 +1,17 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import CourseDetails from '../CourseDetails/CourseDetails';
-import CourseList from '../CourseList/CourseList';
-import './Courses.css'
 
-const Courses = () => {
-    const [courses, setCourses] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/courses')
-            .then(res => res.json())
-            .then(data => setCourses(data))
-    }, [])
-
+const Courses = ({ course }) => {
+    const { title, img, description } = course;
     return (
-        <div className='mx-5'>
-            <h2 className="card-title">Total courses :: {courses.length}</h2>
-            <div className="grid-course">
-                <div className="">
-                    {
-                        courses.map(course => <CourseList key={course.id} course={course}>
-
-                        </CourseList>)
-                    }
-
-                </div>
-                <div className="grid-css">
-                    {
-                        courses.map(course => <CourseDetails key={course.id} course={course}>
-
-                        </CourseDetails>)
-                    }
+        <div className="card glass">
+            <figure><img src={img} alt="car!" /></figure>
+            <div className="card-body">
+                <h2 className="card-title justify-center text-secondary">{title}</h2>
+                <p className="justify-center  text-justify ">{description}</p>
+                <div className="card-actions justify-center">
+                    <button className="btn btn-primary">Learn now!</button>
                 </div>
             </div>
-
         </div>
     );
 };

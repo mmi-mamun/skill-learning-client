@@ -1,18 +1,24 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Courses from '../Courses/Courses';
 
-const CourseDetails = ({ course }) => {
-    const { title, img, description } = course;
+const CourseDetails = () => {
+
+    const [courses, setCourses] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/courses')
+            .then(res => res.json())
+            .then(data => setCourses(data))
+    }, [])
+
     return (
-        <div className="card w-96 glass">
-            <figure><img src={img} alt="car!" /></figure>
-            <div className="card-body">
-                <h2 className="card-title justify-center text-secondary">{title}</h2>
-                <p className="justify-center  text-justify ">{description}</p>
-                <div className="card-actions justify-center">
-                    <button className="btn btn-primary">Learn now!</button>
-                </div>
-            </div>
+        <div className='grid grid-cols-3 gap-2'>
+            {
+                courses.map(course => <Courses course={course} key={course.id} ></Courses>)
+            }
         </div>
+
     );
 };
 

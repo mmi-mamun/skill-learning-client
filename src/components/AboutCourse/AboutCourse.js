@@ -1,6 +1,14 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 
+// import ReactToPdf from '../../pages/ReactToPdf/ReactToPdf';
+// const ref = React.createRef();
+// const options = {
+//     orientation: 'landscape',
+//     unit: 'in',
+//     format: [4, 2]
+// };
+
 const AboutCourse = () => {
     const course = useLoaderData();
     console.log(course)
@@ -15,6 +23,18 @@ const AboutCourse = () => {
                     <button className="btn btn-primary">Get Premium Access</button>
                 </div>
             </div>
+
+
+            {/* <div>
+                <ReactToPdf targetRef={ref} filename="div-blue.pdf" options={options} x={.5} y={.5} scale={0.8}>
+                    {({ toPdf }) => (
+                        <button className='text-red-500 btn glass' onClick={toPdf}>Generate pdf</button>
+
+                    )}
+                </ReactToPdf>
+                <div style={{ width: 500, height: 500, background: 'blue' }} ref={ref} />
+
+            </div> */}
         </div>
     );
 };
