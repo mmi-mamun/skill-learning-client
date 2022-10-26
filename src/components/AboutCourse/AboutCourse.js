@@ -19,6 +19,7 @@ const AboutCourse = () => {
                 <div>
                     <button className="btn glass">Save as pdf</button>
                     <h1 className="text-5xl font-bold">{course.title}</h1>
+                    <p><small>For {course.level}</small></p>
                     <p className="py-6">{course.description}</p>
                     <button className="btn btn-primary">Get Premium Access</button>
                 </div>
