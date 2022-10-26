@@ -6,6 +6,7 @@ import Courses from "../../components/Courses/Courses";
 import Header from "../../components/Header/Header";
 import Home from "../../components/Home/Home";
 import Main from "../../layout/Main";
+import FourOFour from "../../pages/FourOFour/FourOFour";
 import Login from "../../pages/Login/Login";
 import ReactToPdf from "../../pages/ReactToPdf/ReactToPdf";
 import Register from "../../pages/Register/Register";
@@ -48,7 +49,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '*',
-                element: <Header></Header>
+                element: <FourOFour></FourOFour>
             }
         ]
     }
