@@ -18,7 +18,7 @@ ___or___
 
 ***About Skill Learning Project***
 ### Short brief about this project:
-This project is for develop skill and career by training system. Student can enrolled any kinds of courses and get deep knowledge about these courses. Any one can browse this page, everything is opened for all without ~~Checkout page~~.. 
+This project is for develop skill and career by training system. Student can enrolled any kinds of courses and get deep knowledge about these courses. Any one can browse this page, everything is opened for all without Checkout page.. 
 
 ### When user must have to log in:
 --Basically everybody should need to login first because of their identity. But we allows to open for all without login. We considered them as tourist but We always focused and give more opportunity for registered users--
