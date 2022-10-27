@@ -141,13 +141,13 @@ const CheckOutPage = () => {
                                         <div className="alert alert-info">
                                             <div>
                                                 <div>
-                                                    <p>Course ID : {course.id}</p>
-                                                    <p>Course Name : {course.title}</p>
-                                                    <img src={course.img} alt="" />
+                                                    <p className='my-2'>Course ID : {course.id}</p>
+                                                    <p className='my-2'>Course Name : {course.title}</p>
+                                                    <img className='my-2' src={course.img} alt="" />
 
-                                                    <p>We are processing your student profile for this course...</p>
-                                                    <p>We send the confirmation status in your given mail address...</p>
-                                                    <Link to={'/'}><button className="btn btn-active text-black btn-link">Click to go home page</button></Link>
+                                                    <p className='my-2'>We are processing your student profile for this course...</p>
+                                                    <p className='my-2'>We send the confirmation status in your given mail address...</p>
+                                                    <Link to={'/'}><button className="btn btn-active text-black btn-link my-3">Click to go home page</button></Link>
                                                 </div>
                                             </div>
                                         </div>

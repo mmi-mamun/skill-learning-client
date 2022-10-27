@@ -9,13 +9,13 @@ const Main = () => {
         <div>
             <Header></Header>
 
-            <div class="container grid grid-cols-4">
+            <div class="container mx-auto grid grid-cols-4">
 
-                <div className="col-span-1">
+                <div className="lg:col-span-1 md:col-span-4 sm:col-span-4">
                     <CourseList></CourseList>
                 </div>
 
-                <div className="col-span-3">
+                <div className="lg:col-span-3 md:col-span-4 sm:col-span-4">
                     <Outlet></Outlet>
                 </div>
 
