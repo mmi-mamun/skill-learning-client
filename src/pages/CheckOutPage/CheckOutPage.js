@@ -13,7 +13,7 @@ const CheckOutPage = () => {
 
     }
     return (
-        <div className="mockup-window border bg-base-300">
+        <div className="mockup-window border bg-base-300 my-3">
 
 
             <div className="flex justify-center px-4 py-3 bg-base-200">
