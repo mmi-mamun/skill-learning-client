@@ -6,6 +6,7 @@ import Courses from "../../components/Courses/Courses";
 import Header from "../../components/Header/Header";
 import Home from "../../components/Home/Home";
 import Main from "../../layout/Main";
+import CheckOutPage from "../../pages/CheckOutPage/CheckOutPage";
 import FourOFour from "../../pages/FourOFour/FourOFour";
 import Login from "../../pages/Login/Login";
 import ReactToPdf from "../../pages/ReactToPdf/ReactToPdf";
@@ -35,7 +36,12 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/courses/:id',
-                element: <PrivateRoute><AboutCourse></AboutCourse></PrivateRoute>,
+                element: <AboutCourse></AboutCourse>,
+                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+            },
+            {
+                path: '/checkout/:id',
+                element: <PrivateRoute><CheckOutPage></CheckOutPage></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
             },
             {

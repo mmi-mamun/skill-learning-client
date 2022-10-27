@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import CourseList from '../components/CourseList/CourseList';
+import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
 
 const Main = () => {
@@ -19,6 +20,8 @@ const Main = () => {
                 </div>
 
             </div>
+
+            <Footer></Footer>
 
         </div>
     );

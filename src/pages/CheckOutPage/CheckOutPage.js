@@ -1,11 +1,9 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 
-
-
-const AboutCourse = () => {
+const CheckOutPage = () => {
     const course = useLoaderData();
-
+    console.log(course)
     return (
         <div className="mockup-window border bg-base-300">
             <div className="flex justify-center px-4 py-16 bg-base-200">
@@ -14,17 +12,15 @@ const AboutCourse = () => {
                         <img src={course.img} className="max-w-sm rounded-lg shadow-2xl" />
                         <div>
                             <h1 className="text-5xl font-bold">{course.title}</h1>
-                            <p><small>For {course.level}</small></p>
-                            <p className="py-6">{course.description}</p>
-                            <Link to={`/checkout/${course.id}`}><button className="btn btn-primary">Get Premium Access!</button></Link>
+
+                            <button className="btn btn-primary">Get Premium Access</button>
                         </div>
                     </div>
 
                 </div>
             </div>
         </div>
-
     );
 };
 
-export default AboutCourse;
+export default CheckOutPage;
