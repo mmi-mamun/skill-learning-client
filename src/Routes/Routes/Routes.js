@@ -36,12 +36,12 @@ export const routes = createBrowserRouter([
             {
                 path: '/courses/:id',
                 element: <AboutCourse></AboutCourse>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://skill-learning-server-site.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/checkout/:id',
                 element: <PrivateRoute><CheckOutPage></CheckOutPage></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                loader: ({ params }) => fetch(`https://skill-learning-server-site.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/blog',
@@ -54,7 +54,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/test/:id',
                 element: <ReactToPdf></ReactToPdf>,
-                loader: ({ params }) => fetch(`http://localhost:5000/test/${params.id}`)
+                loader: ({ params }) => fetch(`https://skill-learning-server-site.vercel.app/test/${params.id}`)
             },
             {
                 path: '*',
