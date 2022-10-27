@@ -57,11 +57,14 @@ const Header = () => {
     return (
         <nav>
             {toggle ?
-                <div className="navbar bg-base-100 bg-neutral mx-auto">
-                    <div className="flex-1 mx-2">
-                        <div className='mx-3'><img src={logo} style={{ height: '40px', width: '40px', borderRadius: '50%' }} alt="" /></div>
-                        <Link to={'/'} className=" btn btn-ghost normal-case text-xl text-white">Skill Learning</Link>
-                        <div className='w-50 mx-auto flex flex-row gap-5 text-white'>
+                <div className="navbar bg-base-100 bg-neutral mx-auto grid grid-cols-4">
+                    <div className="flex-1 mx-2 lg:col-span-3 md:col-span-3 sm:col-span-4  lg:flex-row sm:flex-col ">
+                        <div className='flex items-center sm:my-2'>
+                            <div className='mx-3'><img src={logo} style={{ height: '40px', width: '40px', borderRadius: '50%' }} alt="" />
+                            </div>
+                            <Link to={'/'} className=" btn btn-ghost normal-case text-xl text-white">Skill Learning</Link>
+                        </div>
+                        <div className='w-50 mx-auto flex flex-row gap-5 text-white sm:mb-3 sm:mt-5'>
                             <Link to='/'>HOME</Link>
                             <Link to='/courses'>COURSES</Link>
                             <Link to='/blog'>BLOG</Link>
@@ -69,8 +72,8 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <div className="flex-none content-center items-center">
-                        <div className="dropdown dropdown-end">
+                    <div className="flex-none mr-3 content-center items-center lg:col-span-1 md:col-span-1 sm:col-span-4">
+                        <div className="dropdown dropdown-end mx-auto">
                             <div className="form-control">
                                 <label className="label cursor-pointer">
                                     {
@@ -91,7 +94,7 @@ const Header = () => {
                         {
                             user?.uid ?
 
-                                <div className="dropdown dropdown-end" title='${user?.displayName}'>
+                                <div className="dropdown dropdown-end mr-3" title='${user?.displayName}'>
                                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
                                             {
@@ -129,11 +132,14 @@ const Header = () => {
                     </div>
                 </div>
                 :
-                <div className="navbar bg-base-100 bg-light mx-auto">
-                    <div className="flex-1 mx-2">
-                        <div className='mx-3'><img src={logo} style={{ height: '40px', width: '40px', borderRadius: '50%' }} alt="" /></div>
-                        <Link to={'/'} className=" btn btn-ghost normal-case text-xl text-white">Skill Learning</Link>
-                        <div className='w-50 mx-auto flex flex-row gap-5 text-white'>
+                <div className="navbar bg-base-100 bg-light mx-auto grid grid-cols-4">
+                    <div className="flex-1 mx-2 lg:col-span-3 md:col-span-3 sm:col-span-4  lg:flex-row sm:flex-col ">
+                        <div className='flex items-center sm:my-2'>
+                            <div className='mx-3'><img src={logo} style={{ height: '40px', width: '40px', borderRadius: '50%' }} alt="" />
+                            </div>
+                            <Link to={'/'} className=" btn btn-ghost normal-case text-xl text-white">Skill Learning</Link>
+                        </div>
+                        <div className='w-50 mx-auto flex flex-row gap-5 text-white sm:mb-3 sm:mt-5'>
                             <Link to='/'>HOME</Link>
                             <Link to='/courses'>COURSES</Link>
                             <Link to='/blog'>BLOG</Link>
@@ -141,8 +147,8 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <div className="flex-none content-center items-center">
-                        <div className="dropdown dropdown-end">
+                    <div className="flex-none mr-3 content-center items-center lg:col-span-1 md:col-span-1 sm:col-span-4">
+                        <div className="dropdown dropdown-end mx-auto">
                             <div className="form-control">
                                 <label className="label cursor-pointer">
                                     {
@@ -163,7 +169,7 @@ const Header = () => {
                         {
                             user?.uid ?
 
-                                <div className="dropdown dropdown-end" title='${user?.displayName}'>
+                                <div className="dropdown dropdown-end mr-3" title='${user?.displayName}'>
                                     <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
                                             {
@@ -199,7 +205,8 @@ const Header = () => {
 
 
                     </div>
-                </div>}
+                </div>
+            }
 
         </nav>
 
