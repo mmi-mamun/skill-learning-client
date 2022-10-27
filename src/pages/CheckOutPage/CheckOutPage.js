@@ -146,7 +146,7 @@ const CheckOutPage = () => {
                                                     <img className='my-2' src={course.img} alt="" />
 
                                                     <p className='my-2'>We are processing your student profile for this course...</p>
-                                                    <p className='my-2'>We send the confirmation status in your given mail address...</p>
+                                                    <p className='my-2'>We will send the confirmation status to your given mail address...</p>
                                                     <Link to={'/'}><button className="btn btn-active text-black btn-link my-3">Click to go home page</button></Link>
                                                 </div>
                                             </div>

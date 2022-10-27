@@ -56,159 +56,90 @@ const Header = () => {
 
     return (
         <nav>
-            {toggle ?
-                <div className="navbar bg-base-100 bg-neutral mx-auto grid grid-cols-4">
-                    <div className="flex-1 mx-2 lg:col-span-3 md:col-span-3 sm:col-span-4  lg:flex-row sm:flex-col ">
-                        <div className='flex items-center sm:my-2'>
-                            <div className='mx-3'><img src={logo} style={{ height: '40px', width: '40px', borderRadius: '50%' }} alt="" />
-                            </div>
-                            <Link to={'/'} className=" btn btn-ghost normal-case text-xl text-white">Skill Learning</Link>
+            {/* {toggle ? */}
+            <div className=
+                {
+                    toggle ?
+                        "navbar bg-base-100 bg-neutral mx-auto grid grid-cols-4"
+                        :
+                        "navbar bg-base-100 bg-light mx-auto grid grid-cols-4"
+                }>
+                <div className="flex-1 mx-2 lg:col-span-3 md:col-span-3 sm:col-span-4  lg:flex-row sm:flex-col ">
+                    <div className='flex items-center sm:my-2'>
+                        <div className='mx-3'><img src={logo} style={{ height: '40px', width: '40px', borderRadius: '50%' }} alt="" />
                         </div>
-                        <div className='w-50 mx-auto flex flex-row gap-5 text-white sm:mb-3 sm:mt-5'>
-                            <Link to='/'>HOME</Link>
-                            <Link to='/courses'>COURSES</Link>
-                            <Link to='/blog'>BLOG</Link>
-
-                        </div>
+                        <Link to={'/'} className=" btn btn-ghost normal-case text-xl text-white">Skill Learning</Link>
                     </div>
-
-                    <div className="flex-none mr-3 content-center items-center lg:col-span-1 md:col-span-1 sm:col-span-4">
-                        <div className="dropdown dropdown-end mx-auto">
-                            <div className="form-control">
-                                <label className="label cursor-pointer">
-                                    {
-                                        toggle ?
-                                            <span className="label-text">on</span>
-                                            :
-                                            <span className="label-text">off</span>
-                                    }
-
-                                    <input onClick={handleToggle} type="checkbox" className="toggle toggle-primary mx-5" />
-                                </label>
-                            </div>
-
-
-
-                        </div>
-
-                        {
-                            user?.uid ?
-
-                                <div className="dropdown dropdown-end mr-3" title='${user?.displayName}'>
-                                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                        <div className="w-10 rounded-full">
-                                            {
-                                                user?.photoURL ? <img src={user?.photoURL} /> : <FaUserAlt className='w-10 mt-3'></FaUserAlt>
-                                            }
-                                        </div>
-                                    </label>
-                                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                        <li>
-                                            <a className="justify-between">
-                                                {user?.displayName}
-                                                <span className="badge">User</span>
-                                            </a>
-                                        </li>
-                                        <p><small>{user?.email}</small></p>
-                                        <li ><a onClick={handleLogOut}><p className='text-red-500 font-bold'>Log out</p></a></li>
-                                    </ul>
-                                </div>
-                                :
-                                <div className="dropdown dropdown-end mx-5">
-                                    <label tabIndex={0} className="btn btn-ghost">
-                                        <div className="">
-                                            <h3>Login</h3>
-                                        </div>
-                                    </label>
-                                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                        <li><Link to='/login' className='text-white p-5'>Login manually</Link></li>
-                                        <li><button onClick={handleGoogleLogin}>Login with Google</button></li>
-                                        <li><Link onClick={handleGithubLogin}>Login with Github</Link></li>
-                                    </ul>
-                                </div>
-                        }
-
+                    <div className='w-50 mx-auto flex flex-row gap-5 text-white sm:mb-3 sm:mt-5'>
+                        <Link to='/'>HOME</Link>
+                        <Link to='/courses'>COURSES</Link>
+                        <Link to='/'>FAQ</Link>
+                        <Link to='/blog'>BLOG</Link>
 
                     </div>
                 </div>
-                :
-                <div className="navbar bg-base-100 bg-light mx-auto grid grid-cols-4">
-                    <div className="flex-1 mx-2 lg:col-span-3 md:col-span-3 sm:col-span-4  lg:flex-row sm:flex-col ">
-                        <div className='flex items-center sm:my-2'>
-                            <div className='mx-3'><img src={logo} style={{ height: '40px', width: '40px', borderRadius: '50%' }} alt="" />
-                            </div>
-                            <Link to={'/'} className=" btn btn-ghost normal-case text-xl text-white">Skill Learning</Link>
-                        </div>
-                        <div className='w-50 mx-auto flex flex-row gap-5 text-white sm:mb-3 sm:mt-5'>
-                            <Link to='/'>HOME</Link>
-                            <Link to='/courses'>COURSES</Link>
-                            <Link to='/blog'>BLOG</Link>
 
+                <div className="flex-none mr-3 content-center items-center lg:col-span-1 md:col-span-1 sm:col-span-4">
+                    <div className="dropdown dropdown-end mx-auto">
+                        <div className="form-control">
+                            <label className="label cursor-pointer">
+                                {
+                                    toggle ?
+                                        <span className="label-text">on</span>
+                                        :
+                                        <span className="label-text">off</span>
+                                }
+
+                                <input onClick={handleToggle} type="checkbox" className="toggle toggle-primary mx-5" />
+                            </label>
                         </div>
+
+
+
                     </div>
 
-                    <div className="flex-none mr-3 content-center items-center lg:col-span-1 md:col-span-1 sm:col-span-4">
-                        <div className="dropdown dropdown-end mx-auto">
-                            <div className="form-control">
-                                <label className="label cursor-pointer">
-                                    {
-                                        toggle ?
-                                            <span className="label-text">on</span>
-                                            :
-                                            <span className="label-text">off</span>
-                                    }
+                    {
+                        user?.uid ?
 
-                                    <input onClick={handleToggle} type="checkbox" className="toggle toggle-primary mx-5" />
+                            <div className="dropdown dropdown-end mr-3" title='${user?.displayName}'>
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        {
+                                            user?.photoURL ? <img src={user?.photoURL} /> : <FaUserAlt className='w-10 mt-3'></FaUserAlt>
+                                        }
+                                    </div>
                                 </label>
+                                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li>
+                                        <a className="justify-between">
+                                            {user?.displayName}
+                                            <span className="badge">User</span>
+                                        </a>
+                                    </li>
+                                    <p><small>{user?.email}</small></p>
+                                    <li ><a onClick={handleLogOut}><p className='text-red-500 font-bold'>Log out</p></a></li>
+                                </ul>
                             </div>
+                            :
+                            <div className="dropdown dropdown-end mx-5">
+                                <label tabIndex={0} className="btn btn-ghost">
+                                    <div className="">
+                                        <h3>Login</h3>
+                                    </div>
+                                </label>
+                                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li><Link to='/login' className='text-white p-5'>Login manually</Link></li>
+                                    <li><button onClick={handleGoogleLogin}>Login with Google</button></li>
+                                    <li><Link onClick={handleGithubLogin}>Login with Github</Link></li>
+                                </ul>
+                            </div>
+                    }
 
 
-
-                        </div>
-
-                        {
-                            user?.uid ?
-
-                                <div className="dropdown dropdown-end mr-3" title='${user?.displayName}'>
-                                    <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                        <div className="w-10 rounded-full">
-                                            {
-                                                user?.photoURL ? <img src={user?.photoURL} /> : <FaUserAlt className='w-10 mt-3'></FaUserAlt>
-                                            }
-                                        </div>
-                                    </label>
-                                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                        <li>
-                                            <a className="justify-between">
-                                                {user?.displayName}
-                                                <span className="badge">User</span>
-                                            </a>
-                                        </li>
-                                        <p><small>{user?.email}</small></p>
-                                        <li ><a onClick={handleLogOut}><p className='text-red-500 font-bold'>Log out</p></a></li>
-                                    </ul>
-                                </div>
-                                :
-                                <div className="dropdown dropdown-end mx-5">
-                                    <label tabIndex={0} className="btn btn-ghost">
-                                        <div className="">
-                                            <h3>Login</h3>
-                                        </div>
-                                    </label>
-                                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                        <li><Link to='/login' className='text-white p-5'>Login manually</Link></li>
-                                        <li><button onClick={handleGoogleLogin}>Login with Google</button></li>
-                                        <li><Link onClick={handleGithubLogin}>Login with Github</Link></li>
-                                    </ul>
-                                </div>
-                        }
-
-
-                    </div>
                 </div>
-            }
+            </div>
 
-        </nav>
+        </nav >
 
     );
 };
