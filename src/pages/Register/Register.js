@@ -1,13 +1,16 @@
-import { Result } from 'postcss';
 import React, { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const [passwordError, setPasswordError] = useState('');
     const [success, setSuccess] = useState(false);
+    let location = useLocation();
+    const from = location.state?.from?.pathname || '/'
+    const navigate = useNavigate();
+
 
     const handleRegister = event => {
         event.preventDefault();
@@ -44,6 +47,8 @@ const Register = () => {
                 setSuccess(true);
                 form.reset();
                 handleUpdateUserProfile(name, photoURL)
+                navigate(from, { replace: true });
+
             })
             .catch(error => {
                 console.error('Error::', error);
