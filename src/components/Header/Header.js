@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import logo from '../../images/logo.png'
-import { FaUserAlt } from "react-icons/fa";
+import { FaMoon, FaSun, FaUserAlt } from "react-icons/fa";
 import { useState } from 'react';
 
 
@@ -73,7 +73,7 @@ const Header = () => {
                     <div className='w-50 mx-auto flex flex-row gap-5 text-white sm:mb-3 sm:mt-5'>
                         <Link to='/'>HOME</Link>
                         <Link to='/courses'>COURSES</Link>
-                        <Link to='/'>FAQ</Link>
+                        <Link to='/faq'>FAQ</Link>
                         <Link to='/blog'>BLOG</Link>
 
                     </div>
@@ -85,9 +85,9 @@ const Header = () => {
                             <label className="label cursor-pointer">
                                 {
                                     toggle ?
-                                        <span className="label-text">on</span>
+                                        <p className='label-text flex items-center gap-2'><span><FaMoon></FaMoon></span><span>Dark</span></p>
                                         :
-                                        <span className="label-text">off</span>
+                                        <p className='label-text flex items-center gap-2 text-white'><span><FaSun></FaSun></span><span>Light</span></p>
                                 }
 
                                 <input onClick={handleToggle} type="checkbox" className="toggle toggle-primary mx-5" />

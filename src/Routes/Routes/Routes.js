@@ -5,6 +5,7 @@ import Courses from "../../components/Courses/Courses";
 import Home from "../../components/Home/Home";
 import Main from "../../layout/Main";
 import CheckOutPage from "../../pages/CheckOutPage/CheckOutPage";
+import FAQ from "../../pages/FAQ/FAQ";
 import FourOFour from "../../pages/FourOFour/FourOFour";
 import Login from "../../pages/Login/Login";
 import ReactToPdf from "../../pages/ReactToPdf/ReactToPdf";
@@ -45,6 +46,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/faq',
+                element: <FAQ></FAQ>
             },
             {
                 path: '/test/:id',
