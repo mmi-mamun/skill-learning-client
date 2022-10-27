@@ -1,28 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaFilePdf } from "react-icons/fa";
+import { useEffect } from 'react';
+import { useState } from 'react';
+import CourseDetails from '../CourseDetails/CourseDetails';
 
-const Courses = ({ course }) => {
-    const { title, img, description } = course;
+const Courses = () => {
+
+    const [courses, setCourses] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/courses')
+            .then(res => res.json())
+            .then(data => setCourses(data))
+    }, [])
+
     return (
-        <div className="card glass">
-            <Link to={`/test/${course.id}`}>
-                <button className="btn btn-xs text-orange-600">Save as pdf  <FaFilePdf></FaFilePdf> </button>
-            </Link>
-
-            <figure><img src={img} alt="car!" /></figure>
-            <div className="card-body">
-
-
-
-                <h2 className="card-title justify-center text-secondary">{title}</h2>
-                <p className="justify-center  text-justify ">{description}</p>
-                <div className="card-actions justify-center">
-                    <Link to={`/courses/${course.id}`}><button className="btn btn-primary">Get Premium Access!</button></Link>
-
-                </div>
-            </div>
+        <div className='grid grid-cols-3 gap-2 mt-5'>
+            {
+                courses.map(course => <CourseDetails course={course} key={course.id} ></CourseDetails>)
+            }
         </div>
+
     );
 };
 
