@@ -11,11 +11,11 @@ const Main = () => {
 
             <div class="container mx-auto grid grid-cols-4">
 
-                <div className="lg:col-span-1 md:col-span-4 sm:col-span-4">
+                <div className="lg:col-span-1 md:col-span-4 sm:col-span-4 col-span-4">
                     <CourseList></CourseList>
                 </div>
 
-                <div className="lg:col-span-3 md:col-span-4 sm:col-span-4">
+                <div className="lg:col-span-3 md:col-span-4 sm:col-span-4 col-span-4">
                     <Outlet></Outlet>
                 </div>
 

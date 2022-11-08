@@ -103,7 +103,7 @@ const Header = () => {
 
                             <div className="dropdown dropdown-end mr-3">
                                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                                    <div className="w-10 rounded-full">
+                                    <div title={user?.displayName} className="w-10 rounded-full">
                                         {
                                             user?.photoURL ? <img src={user?.photoURL} /> : <FaUserAlt className='w-10 mt-3'></FaUserAlt>
                                         }
