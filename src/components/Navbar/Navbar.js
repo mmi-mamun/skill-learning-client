@@ -58,7 +58,7 @@ const Navbar = () => {
         <li><Link to='/courses'>COURSES</Link></li>
         <li><Link to='/faq'>FAQ</Link></li>
         <li><Link to='/blog'>BLOG</Link></li>
-        <li><Link to='/faq'>FAQ</Link></li>
+        <li><Link to='/user'>USER PROFILE</Link></li>
         {/* <li><label htmlFor="registrationModal" className="btn btn-outline btn-primary mx-0.5" onClick={() => setModal({ close: setModal })}>Register</label></li> */}
     </>
 

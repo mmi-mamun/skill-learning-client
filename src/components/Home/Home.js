@@ -12,7 +12,7 @@ const Home = () => {
             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content">
                 {/* <!-- Page content here --> */}
-                <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary mt-12">User Profile</label>
+                <label htmlFor="my-drawer-4" className="drawer-button btn btn-primary mt-12">Who am I</label>
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
