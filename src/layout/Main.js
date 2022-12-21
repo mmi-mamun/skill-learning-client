@@ -3,11 +3,13 @@ import { Outlet } from 'react-router-dom';
 import CourseList from '../components/CourseList/CourseList';
 import Footer from '../components/Footer/Footer';
 import Header from '../components/Header/Header';
+import Navbar from '../components/Navbar/Navbar';
 
 const Main = () => {
     return (
         <div>
-            <Header></Header>
+            {/* <Header></Header> */}
+            <Navbar></Navbar>
 
             <div class="container mx-auto grid grid-cols-4">
 
