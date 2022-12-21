@@ -14,7 +14,7 @@ const CourseDetails = ({ course }) => {
 
             <div className="card-body">
                 <h2 className="card-title justify-center text-secondary">{title}</h2>
-                <p className="justify-center  text-justify ">{description}</p>
+                <p className="justify-center  text-justify ">{description.slice(0, 75)}...</p>
                 <div className="card-actions justify-center">
                     <Link to={`/courses/${course.id}`}><button className="btn btn-primary">SHOW MORE</button></Link>
                 </div>

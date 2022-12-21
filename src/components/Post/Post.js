@@ -6,7 +6,7 @@ const Post = ({ post }) => {
     return (
         <div>
             <div className="blog-text">
-                <h1>{title}</h1>
+                <h1 className='lg:text-2xl text-orange-400 font-semibold'>{title}</h1>
                 <p><small>Author: {author}</small></p>
                 <img src={imgUrl} alt="" srcset="" />
                 <p className='txt'>{firstPart}</p>
