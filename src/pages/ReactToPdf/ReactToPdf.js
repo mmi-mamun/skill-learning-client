@@ -19,7 +19,7 @@ function ReactToPdf() {
 
 
             <div ref={ref}>
-                <img src={course.img} alt="" />
+                <img className="mt-12 mx-auto" src={course.img} alt="" />
                 <h1 className="text-5xl m-5 text-secondary">{course.title}</h1>
                 <p>For {course.level}</p>
                 <h4 className="text-2xl m-3">Course fee: {course.fee} Taka</h4>
