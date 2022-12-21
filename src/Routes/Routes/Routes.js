@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import AboutCourse from "../../components/AboutCourse/AboutCourse";
+import Banner from "../../components/Banner/Banner";
 import Blog from "../../components/Blog/Blog";
 import Courses from "../../components/Courses/Courses";
 import Home from "../../components/Home/Home";
@@ -19,7 +20,7 @@ export const routes = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Banner></Banner>
             },
             {
                 path: 'login',
