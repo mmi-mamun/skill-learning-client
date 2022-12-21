@@ -13,10 +13,10 @@ const CheckOutPage = () => {
 
     }
     return (
-        <div className="mockup-window border bg-base-300 my-3">
+        <div className="mockup-window border bg-base-300 m-3">
 
 
-            <div className="flex justify-center px-4 py-3 bg-base-200">
+            <div className="flex justify-center items-center px-4 py-3 bg-base-200">
 
                 <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col lg:flex-row-reverse">
@@ -24,7 +24,7 @@ const CheckOutPage = () => {
                         <img src={course.img} className="max-w-sm rounded-lg shadow-2xl" />
 
                         <form onSubmit={handleSubmitCheckout} className="hero min-h-screen bg-base-200">
-                            <div className="hero-content flex-col">
+                            <div className="hero-content flex-col mx-auto">
                                 <div className="text-center">
                                     <h1 className="text-4xl font-bold">CHECKOUT PAGE</h1>
                                     <p>Course ID: {course.id}</p>
@@ -32,7 +32,7 @@ const CheckOutPage = () => {
 
 
                                 {/*********************** Get Name  *******************/}
-                                <div className="flex gap-2">
+                                <div className="grid grid-cols-1 gap-3">
                                     <div className="form-control">
                                         <label className="input-group input-group-vertical">
                                             <span>First Name</span>
@@ -49,7 +49,7 @@ const CheckOutPage = () => {
                                 </div>
 
                                 {/*********************** Get Contact Number & Email*******************/}
-                                <div className="flex gap-2">
+                                <div className="grid grid-cols-1 gap-3">
                                     <div className="form-control">
                                         <label className="input-group input-group-vertical">
                                             <span>Give your contact number</span>
@@ -69,8 +69,8 @@ const CheckOutPage = () => {
 
 
                                 {/*********************** Get Gender & Location  *******************/}
-                                <div className="flex gap-2">
-                                    <div className="form-control">
+                                <div className="grid grid-cols-1 gap-3  mx-auto">
+                                    <div className="form-control mx-auto">
                                         <div className="input-group">
                                             <span className="">Gender</span>
                                             <select className="select select-bordered">
@@ -81,7 +81,7 @@ const CheckOutPage = () => {
                                         </div>
                                     </div>
 
-                                    <div className="form-control">
+                                    <div className="form-control mx-auto">
                                         <label className="input-group">
                                             <span>City</span>
                                             <input type="text" className="input input-bordered" required />
@@ -94,14 +94,14 @@ const CheckOutPage = () => {
 
 
                                 {/*********************** Get Address  *******************/}
-                                <div className="flex gap-2">
-                                    <div className="form-control">
+                                <div className="grid grid-cols-1 gap-3">
+                                    <div className="form-control mx-auto">
                                         <label className="input-group input-group-xs">
                                             <span>State</span>
                                             <input type="text" className="input input-bordered input-xs" required />
                                         </label>
                                     </div>
-                                    <div className="form-control">
+                                    <div className="form-control  mx-auto">
                                         <label className="input-group input-group-xs">
                                             <span>ZIP Code</span>
                                             <input type="text" className="input input-bordered input-xs" required />

@@ -5,7 +5,7 @@ import { FaFilePdf } from "react-icons/fa";
 const CourseDetails = ({ course }) => {
     const { title, img, description } = course;
     return (
-        <div className="card glass">
+        <div className="card glass m-5">
             <Link to={`/test/${course.id}`}>
                 <button className="btn btn-xs text-orange-600">Save as pdf  <FaFilePdf></FaFilePdf> </button>
             </Link>
